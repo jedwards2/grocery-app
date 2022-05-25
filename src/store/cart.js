@@ -4,6 +4,14 @@ const INCREMENT_ITEM = "cart/INCREMENT";
 const DECREMENT_ITEM = "cart/DECREMENT";
 const PURCHASE_CART = "cart/PURCHASE";
 
+export const getAllCartItems = (state) =>
+  Object.values(state.cart).map((item) => {
+    return {
+      ...item,
+      ...state.produce[item.id],
+    };
+  });
+
 const cartReducer = (state = {}, action) => {
   switch (action.type) {
     case ADD_TO_CART:

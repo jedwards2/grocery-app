@@ -3,6 +3,8 @@ import produceData from "../mockData/produce.json";
 const POPULATE = "produce/POPULATE";
 const TOGGLE = "produce/TOGGLE";
 
+export const getAllProduce = (state) => Object.values(state.produce);
+
 const produceReducer = (state = {}, action) => {
   switch (action.type) {
     case POPULATE:
