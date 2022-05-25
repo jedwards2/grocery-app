@@ -2,6 +2,7 @@ const ADD_TO_CART = "cart/ADD";
 const REMOVE_FROM_CART = "cart/REMOVE";
 const INCREMENT_ITEM = "cart/INCREMENT";
 const DECREMENT_ITEM = "cart/DECREMENT";
+const PURCHASE_CART = "cart/PURCHASE";
 
 const cartReducer = (state = {}, action) => {
   switch (action.type) {
@@ -31,6 +32,8 @@ const cartReducer = (state = {}, action) => {
         newObj4[action.id] = { id: action.id, count: prevCount2 - 1 };
       }
       return newObj4;
+    case PURCHASE_CART:
+      return {};
     default:
       return state;
   }
@@ -61,6 +64,12 @@ export const decrementItem = (id) => {
   return {
     type: DECREMENT_ITEM,
     id,
+  };
+};
+
+export const purchaseCart = () => {
+  return {
+    type: PURCHASE_CART,
   };
 };
 
